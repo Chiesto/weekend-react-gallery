@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './GalleryItem.css'
 
 function GalleryItem ({item}) {
     const [isClicked, setIsClicked] = useState(true);

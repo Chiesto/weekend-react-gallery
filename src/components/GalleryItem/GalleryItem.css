@@ -1,1 +1,9 @@
-
+.photo{
+    width: 150px;
+    height: 200px;
+}
+.photo-description{
+    height: 200px;
+    position: relative;
+    top: -10px
+}
