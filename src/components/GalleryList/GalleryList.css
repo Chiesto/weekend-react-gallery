@@ -1,0 +1,16 @@
+.photo-div{
+    background-color: aqua;
+    border-style: solid;
+    border-width: 10px;
+    margin: 20px;
+    height: 200px;
+    width: 150px;
+    justify-content: center;
+    word-wrap:break-word;
+    display: block;
+    float: left;
+}
+button{
+    height: 27px;
+    width: 90px;
+}
