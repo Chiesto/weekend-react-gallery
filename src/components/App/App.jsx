@@ -37,6 +37,7 @@ function App() {
         ))}
         
         </div>
+        <footer>What a happy gallery</footer>
       </div>
     );
   }

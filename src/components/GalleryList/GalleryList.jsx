@@ -14,6 +14,10 @@ function GalleryList({item, getGallery}){
                 console.log("couldn't update likes=>", error)
             })
     }
+    
+    const deletePic = () =>{
+        
+    }
    
 
 
@@ -23,6 +27,7 @@ function GalleryList({item, getGallery}){
             <GalleryItem item={item}/>
             <br></br>
             <button onClick={()=>updateLikes(item.id)}>{item.likes} Likes</button>
+            <button onClick={deletePic}>Delete</button>
         </div>
 
         
