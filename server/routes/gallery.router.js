@@ -47,7 +47,21 @@ router.post('/', (req, res) =>{
             res.sendStatus(500);
         })
 })
-
 //END POST route
+
+//DELETE route
+router.delete('/:id', (req, res)=>{
+    const idToDelete = req.params.id;
+    console.log(idToDelete);
+    const queryText = 'DELETE FROM gallery WHERE "id" = $1'
+
+    pool.query(queryText, [idToDelete])
+        .then(result=>{
+            res.sendStatus(200)
+        }).catch(error =>{
+            res.sendStatus(500);
+        })
+})
+//END DELETE route
 
 module.exports = router;

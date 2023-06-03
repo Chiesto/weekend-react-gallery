@@ -15,8 +15,13 @@ function GalleryList({item, getGallery}){
             })
     }
     
-    const deletePic = () =>{
-        
+    const deletePic = (id) =>{
+        axios.delete(`/gallery/${id}`)
+            .then(response=>{
+                getGallery();
+            }).catch(error=>{
+                console.log('problems in the delete=>', error);
+            })
     }
    
 
@@ -27,7 +32,7 @@ function GalleryList({item, getGallery}){
             <GalleryItem item={item}/>
             <br></br>
             <button onClick={()=>updateLikes(item.id)}>{item.likes} Likes</button>
-            <button onClick={deletePic}>Delete</button>
+            <button onClick={()=>deletePic(item.id)}>Delete</button>
         </div>
 
         
