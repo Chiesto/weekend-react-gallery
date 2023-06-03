@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const multer  = require('multer')
+const upload = multer({ dest: 'public/images' })
 const pool = require('../modules/pool');
+
+
 
 
 
@@ -35,8 +39,9 @@ router.get('/', (req, res) => {
 }); // END GET Route
 
 //POST route
-router.post('/', (req, res) =>{
+router.post('/', upload.single("avatar"),(req, res) =>{
     const newPic = req.body;
+    console.log(req.file);
     let queryText = `INSERT INTO gallery (path, description)
                      VALUES ($1, $2)`;
     pool.query(queryText, [newPic.path, newPic.description])

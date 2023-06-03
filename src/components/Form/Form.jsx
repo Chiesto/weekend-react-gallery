@@ -25,9 +25,10 @@ function Form({getGallery}){
 
 
     return(
-        <form onSubmit={submit}>
+        <form action="/gallery" method="post" encType="multipart/form-data" onSubmit={submit}>
             <label>Picture File Path:</label>&nbsp;
           <TextField 
+          type="file" name="avatar"
           variant="standard"
             onChange={(event)=>setNewFP(event.target.value)} placeholder='Picture file path'
             value={newFP}/>
