@@ -1,5 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Button from '@mui/material/Button';
+import './Form.css'
+import TextField from '@mui/material/TextField'
 
 function Form({getGallery}){
     const [newFP, setNewFP] = useState('');
@@ -23,18 +27,22 @@ function Form({getGallery}){
     return(
         <form onSubmit={submit}>
             <label>Picture File Path:</label>&nbsp;
-          <input 
+          <TextField 
+          variant="standard"
             onChange={(event)=>setNewFP(event.target.value)} placeholder='Picture file path'
             value={newFP}/>
           &nbsp;
+          &nbsp;
+          &nbsp;
           <label>Picture Description:</label>
           &nbsp;
-          <input 
+          <TextField
+            variant="standard" 
             onChange={(event)=>setNewDescription(event.target.value)} placeholder='Picture description'
             value={newDescription}
             />
           &nbsp;
-          <button type="submit">Add Picture</button>
+          <Button style={{width: '12em'}}variant="contained" type="submit" className="submit-btn">Add Picture</Button>
         </form>
     )
 }

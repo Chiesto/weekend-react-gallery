@@ -5,5 +5,7 @@
 .photo-description{
     height: 200px;
     position: relative;
-    top: -10px
+    top: 5px;
+    margin: 0;
+    padding-bottom: 0;
 }

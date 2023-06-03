@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React from "react";
 import GalleryItem from '../GalleryItem/GalleryItem';
-import './GalleryList.css'
+import './GalleryList.css';
+import Button from '@mui/material/Button';
 
 function GalleryList({item, getGallery}){
 
@@ -31,8 +32,8 @@ function GalleryList({item, getGallery}){
         <div className='photo-div' >
             <GalleryItem item={item}/>
             <br></br>
-            <button onClick={()=>updateLikes(item.id)}>{item.likes} Likes</button>
-            <button onClick={()=>deletePic(item.id)}>Delete</button>
+            <Button variant="outlined"onClick={()=>updateLikes(item.id)}>{item.likes} Likes</Button>
+            <Button onClick={()=>deletePic(item.id)}>Delete</Button>
         </div>
 
         
