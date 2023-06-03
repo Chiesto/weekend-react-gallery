@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
+import Form from '../Form/Form';
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <h2>My Gallery</h2>
+        <Form getGallery={getGallery}/>
         <div className='gallery-div'>
         {galleryList.map(item=>(
           <GalleryList key={item.id} getGallery={getGallery} item={item}/>

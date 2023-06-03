@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const galleryItems = require('../modules/gallery.data');
+const pool = require('../modules/pool');
+
+
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
@@ -21,7 +23,7 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "gallery";';
+    let queryText = 'SELECT * FROM "gallery" ORDER BY "id" DESC;';
     pool.query(queryText)
         .then(result => {
             res.send(result.rows);
@@ -31,5 +33,21 @@ router.get('/', (req, res) => {
             res.sendStatus(500);
         })
 }); // END GET Route
+
+//POST route
+router.post('/', (req, res) =>{
+    const newPic = req.body;
+    let queryText = `INSERT INTO gallery (path, description)
+                     VALUES ($1, $2)`;
+    pool.query(queryText, [newPic.path, newPic.description])
+        .then(result=>{
+            console.log('added a picture!!=>', newPic);
+            res.sendStatus(201);
+        }).catch(error=>{
+            res.sendStatus(500);
+        })
+})
+
+//END POST route
 
 module.exports = router;
