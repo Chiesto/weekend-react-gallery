@@ -32,7 +32,7 @@ function GalleryList({item, getGallery}){
         <div className='photo-div' >
             <GalleryItem item={item}/>
             <br></br>
-            <Button variant="outlined"onClick={()=>updateLikes(item.id)}>{item.likes} Likes</Button>
+            <Button className="like-btn"variant="outlined"onClick={()=>updateLikes(item.id)}>{item.likes} Likes</Button>
             <Button onClick={()=>deletePic(item.id)}>Delete</Button>
         </div>
 

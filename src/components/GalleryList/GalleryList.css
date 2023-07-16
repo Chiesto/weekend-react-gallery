@@ -17,3 +17,6 @@ button{
     height: 27px;
     width: 90px;
 }
+.like-btn{
+    width: fit-content;
+}
